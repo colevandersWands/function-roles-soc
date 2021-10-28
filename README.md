@@ -24,11 +24,11 @@ Other developers should be able to know WHAT your code does without needing to n
 
 And finally, the function roles you will learn in this module:
 
-- **Listeners**
-- **Handlers**
-- **Utils**
-- **Components**
-- **Custom Events**
+- 🥚 **Listeners**
+- 🥚 **Handlers**
+- 🥚 **Utils**
+- 🐣 **Components**
+- 🐥 **Custom Events**
 
 As you study your way around the internet it's important to keep in mind that these 4 function roles are not standard everywhere. Different resources may use different terms, or may not even talk about function roles at all. These roles are just a helpful way for you to organize your thoughts as you read and write your first programs.
 
@@ -36,7 +36,7 @@ As you study your way around the internet it's important to keep in mind that th
 
 ---
 
-### 0. init
+### 0. 🥚 init
 
 Not really a function, but this one is important. The `/init` files in your applications will be the _only_ file directly by your `.html` files. Init files are responsible for only one thing:
 
@@ -44,7 +44,7 @@ Not really a function, but this one is important. The `/init` files in your appl
 
 ---
 
-### 1. Event Listeners
+### 1. 🥚 Event Listeners
 
 JavaScript programs are [_event-driven_](https://en.wikipedia.org/wiki/Event-driven_programming). This is a fancy way to say that websites sit waiting for an event to occur, then they do something, then they go back to waiting. For example:
 
@@ -74,7 +74,7 @@ You can tell if it matches these criteria:
 
 ---
 
-### 2. Event Handlers
+### 2. 🥚 Event Handlers
 
 Event handlers are the [**_entry point_**](https://en.wikipedia.org/wiki/Entry_point) for user interactions. "**Entry Point**" is just a fancy way to say "the first code that is executed". So when a user interacts with your web page a few things happen:
 
@@ -98,7 +98,7 @@ Event handlers are the functions responsible for reading user input from events 
 
 ---
 
-### 3. Utils
+### 3. 🥚 Utils
 
 These are **pure functions**, the kind of function you studied in Behavior, Strategy, Implementation. They take in JS data, transform it, and return a new value. Unlike _handlers_ or _procedures_ which can interact with the user interface, util functions are easy to test and document because their behavior is predictable - the same arguments will always give the same return value.
 
@@ -117,7 +117,7 @@ Util functions are responsible for the many complicated things you may need to d
 
 ---
 
-### 4. Components
+### 4. 🐣 Components
 
 Components are functions that return a _component_ of the user interface. The term "component" is very common in web development and depending on which language or framework you are using, it's exact definition can change. For now a component is just a function that returns a DOM element.
 
@@ -148,7 +148,7 @@ One huge benefit of developing your application with components is that you can 
 
 ---
 
-### 5. Custom Events
+### 5. 🐥 Custom Events
 
 Custom events are a very useful way to share data across different parts of your user interface. Custom Events behave just like native events (`click`, `mouseover`, ...) but can be customized to have a different `.type` and to carry any data you want in the `.detail` property.
 
@@ -206,7 +206,7 @@ There are many interactions that would be complicated to implement without Custo
      inputEl.value = initialGreeting;
 
      // intercept the event each time the user changes the input's value
-     inputEl.addEventListener('change', (event) => {
+     inputEl.addEventListener('change', event => {
        // prevent the native 'change' event from bubbling up
        event.stopPropagation();
        // create a new custom event containing the new greeting
@@ -222,7 +222,7 @@ There are many interactions that would be complicated to implement without Custo
 Then you can listen for this event like you would a native event:
 
 ```js
-document.getElementById('input-root').addEventListener('greet', (event) => {
+document.getElementById('input-root').addEventListener('greet', event => {
   // read the user data from the custom event's .detail property
   const greeting = event.detail.greeting;
 
